@@ -36,8 +36,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: No-op
-        run: true
+      - name: Exit
+        run: exit 0
+      # TODO: run code linter
 
   # 2. Verification: Test Suite (Gated by Linter & Commitlint)
   test-suite:
@@ -51,6 +52,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: No-op
-        run: true
-
+      - name: Exit
+        run: exit 0
+      # TODO: run test suite
