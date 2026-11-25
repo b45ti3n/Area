@@ -37,5 +37,5 @@ jobs:
           MIRROR_URL: ${{ secrets.MIRROR_REPO_URL }}
           TARGET_BRANCH: ${{ github.event.workflow_run.head_branch }}
         run: |
-          git remote add mirror "$MIRROR_URL"
+          git remote add mirror "$MIRROR_REPO_URL"
           git push mirror "HEAD:refs/heads/${TARGET_BRANCH}"
