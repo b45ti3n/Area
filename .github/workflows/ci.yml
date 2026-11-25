@@ -32,12 +32,12 @@ jobs:
   # 1B. Fast Gate: Code Linter (Runs in parallel with Commitlint)
   linter:
     name: Linter
-    if: github.repository == 'b45ti3n/NexPlay'
+    if: github.repository == 'b45ti3n/Area'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Exit
-        run: exit 0
+      - name: No-op
+        run: true
       # TODO: run code linter
 
   # 2. Verification: Test Suite (Gated by Linter & Commitlint)
@@ -46,12 +46,12 @@ jobs:
     needs: [linter, commitlint]
     if: |
       always() &&
-      github.repository == 'b45ti3n/NexPlay' &&
+      github.repository == 'b45ti3n/Area' &&
       needs.linter.result == 'success' &&
       (needs.commitlint.result == 'success' || needs.commitlint.result == 'skipped')
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Exit
-        run: exit 0
+      - name: No-op
+        run: true
       # TODO: run test suite
